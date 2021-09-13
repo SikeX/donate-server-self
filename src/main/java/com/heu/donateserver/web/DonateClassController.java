@@ -7,11 +7,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
-@RequestMapping(value="/hello")
-public class HelloController {
+@RequestMapping(value="/donateClasses")  // 映射到/donateClasses下
+public class DonateClassController {
 
-    @RequestMapping(value = "/hello", method = GET, produces = "application/json")
-    public WebResponse<Test> getMsg(@PathVariable Long id) {
+    static Map<>
 
-    }
 }
