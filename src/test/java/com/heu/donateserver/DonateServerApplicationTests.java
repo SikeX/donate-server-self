@@ -1,13 +1,34 @@
 package com.heu.donateserver;
 
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+import com.heu.donateserver.entity.DonationClass;
+import com.heu.donateserver.mapper.DonateClassMapper;
 
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
+import static org.junit.Assert.*;
+
+import java.util.List;
+
+@RunWith(SpringRunner.class)
 @SpringBootTest
-class DonateServerApplicationTests {
+public class DonateServerApplicationTests {
+
+    @Autowired
+    private DonateClassMapper mapper;
 
     @Test
-    void contextLoads() {
+    public void contextLoads() {
+        List<DonationClass> list = mapper.selectList(null);
+        assertEquals(2, list.size());
+        list.forEach(System.out::println);
     }
 
+    @Test
+    public void addDonateClass() {
+        DonationClass donationClass = new DonationClass();
+
+    }
 }
