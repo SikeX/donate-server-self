@@ -1,7 +1,7 @@
 package com.heu.donateserver;
 
 import com.heu.donateserver.entity.DonationClass;
-import com.heu.donateserver.mapper.DonateClassMapper;
+import com.heu.donateserver.mapper.DonationClassMapper;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -17,7 +17,7 @@ import java.util.List;
 public class DonateServerApplicationTests {
 
     @Autowired
-    private DonateClassMapper mapper;
+    private DonationClassMapper mapper;
 
     @Test
     public void contextLoads() {

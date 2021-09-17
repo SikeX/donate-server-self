@@ -5,6 +5,6 @@ import com.heu.donateserver.entity.DonationClass;
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
-public interface DonateClassMapper extends BaseMapper<DonationClass> {
+public interface DonationClassMapper extends BaseMapper<DonationClass> {
 
 }
