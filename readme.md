@@ -76,7 +76,6 @@ git branch -d mydev
 
 ```
 
-├── donate-server.iml
 ├── pom.xml
 ├── readme.md
 ├── src
@@ -86,11 +85,21 @@ git branch -d mydev
 │   │   │       └── heu
 │   │   │           └── donateserver
 │   │   │               ├── DonateServerApplication.java
-│   │   │               ├── config
-│   │   │               │   └── MybatisPlusConfig.java
-│   │   │               ├── entity: DO层
-│   │   │               │   └── DonateClass.java
-│   │   │               └── web
+│   │   │               ├── common 通用功能
+│   │   │               │   ├── CommonResponse.java 响应类
+│   │   │               │   └── ResponseCode.java
+│   │   │               ├── config 配置
+│   │   │               │   └── Swagger2.java
+│   │   │               ├── entity 实体层
+│   │   │               │   ├── DonationClass.java
+│   │   │               │   └── DonationItem.java
+│   │   │               ├── mapper 映射层
+│   │   │               │   └── DonationClassMapper.java
+│   │   │               ├── service 服务层
+│   │   │               │   ├── DonationClassService.java
+│   │   │               │   └── impl
+│   │   │               │       └── DonationClassServiceImpl.java
+│   │   │               └── web 网络层
 │   │   │                   └── DonateClassController.java
 │   │   └── resources
 │   │       ├── application.yml
@@ -107,14 +116,38 @@ git branch -d mydev
     │   ├── application.yml
     │   └── com
     │       └── heu
-    │           ├── donateserver
-    │           │   └── DonateServerApplication.class
-    │           └── web
-    │               └── HelloController.class
+    │           └── donateserver
+    │               ├── DonateServerApplication.class
+    │               ├── common
+    │               │   ├── CommonResponse.class
+    │               │   └── ResponseCode.class
+    │               ├── config
+    │               │   └── Swagger2.class
+    │               ├── entity
+    │               │   ├── DonationClass.class
+    │               │   └── DonationItem.class
+    │               ├── mapper
+    │               │   └── DonationClassMapper.class
+    │               ├── service
+    │               │   ├── DonationClassService.class
+    │               │   └── impl
+    │               │       └── DonationClassServiceImpl.class
+    │               └── web
+    │                   └── DonateClassController.class
     ├── generated-sources
     │   └── annotations
     ├── generated-test-sources
     │   └── test-annotations
+    ├── maven-status
+    │   └── maven-compiler-plugin
+    │       ├── compile
+    │       │   └── default-compile
+    │       │       ├── createdFiles.lst
+    │       │       └── inputFiles.lst
+    │       └── testCompile
+    │           └── default-testCompile
+    │               ├── createdFiles.lst
+    │               └── inputFiles.lst
     └── test-classes
         └── com
             └── heu
