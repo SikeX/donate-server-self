@@ -18,9 +18,18 @@
     </properties>
 
     <dependencies>
+        <!-- spring-boot-starter-web -->
+        <!-- web场景启动器 -->
+        <!-- 内置了 jackson -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <!-- spring-boot-starter-thymeleaf -->
+        <!-- 主要用于显示resources/templates中的html -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
         </dependency>
         <dependency>
             <groupId>com.baomidou</groupId>
@@ -45,15 +54,10 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-        <!-- swagger api文档 -->
+        <!-- 引入Swagger3依赖 -->
         <dependency>
             <groupId>io.springfox</groupId>
-            <artifactId>springfox-swagger2</artifactId>
-            <version>3.0.0</version>
-        </dependency>
-        <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-swagger-ui</artifactId>
+            <artifactId>springfox-boot-starter</artifactId>
             <version>3.0.0</version>
         </dependency>
         <!-- spring-boot-devtools 热更新 -->
