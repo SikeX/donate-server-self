@@ -11,14 +11,16 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
-@Configuration
+@Configuration // 标注当前类是一个启动类，即项目启动时就要去加载了
 @EnableSwagger2
 public class Swagger2 {
-    @Bean
+
+    @Bean  //把该组件添加到IOC容器中
     public Docket createRestApi() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo())
                 .select()
+                // Swagger2进行包扫描，扫描 controller，这里填写 controller 的文件夹全路径
                 .apis(RequestHandlerSelectors.basePackage("com.heu.donateserver.web.DonateClassController"))
                 .paths(PathSelectors.any())
                 .build();
