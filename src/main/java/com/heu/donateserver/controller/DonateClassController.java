@@ -16,14 +16,21 @@ import java.util.*;
 @Api(tags = "捐赠项目分类")
 //@RequestMapping("/donateClasses/")  // 映射到/donateClasses下
 public class DonateClassController {
+
     @Autowired
     private DonationClassService donationClassService;
 
-    @ApiOperation("查询全部分类")
+    @ApiOperation(value = "查询捐赠项目分类")
     @GetMapping("donateClasses")
     @ResponseBody
     public CommonResponse<List<DonationClass>> getDonationClassList(){
         return BuildResponseUtils.buildResponse(donationClassService.list());
+    }
+
+    @ApiOperation("新增项目分类")
+    @PostMapping("donationClass")
+    public CommonResponse<?> add(@RequestBody DonationClass donationClass) {
+        return BuildResponseUtils.buildResponse(donationClassService.save(donationClass));
     }
 
     // 创建线程安全的Map，模拟users信息的存储

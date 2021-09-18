@@ -10,7 +10,7 @@ import java.sql.Timestamp;
 @Data
 @TableName("donation_class")
 public class DonationClass {
-    @TableId(value = "donation_Class_Id")
+    @TableId(value = "donation_class_id")
     private Long donationClassId;
     private String donationClassName;
     private Integer isAccess;

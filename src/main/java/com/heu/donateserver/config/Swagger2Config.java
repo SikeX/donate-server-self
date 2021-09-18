@@ -24,16 +24,16 @@ public class Swagger2Config {
                 .apiInfo(apiInfo())
                 .select()
                 // Swagger2进行包扫描，扫描 controller，这里填写 controller 的文件夹全路径
-                .apis(RequestHandlerSelectors.basePackage("com.heu.donateserver.web"))
+                .apis(RequestHandlerSelectors.basePackage("com.heu.donateserver.controller"))
                 .paths(PathSelectors.any())
                 .build();
     }
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("spring boot 测试使用 Swagger2 构建Restful API")
+                .title("校友捐赠项目 API")
                 .description("api描述")
-                .contact(new Contact("xxx","https://github.com/SikeX/donate-server",""))
+                .contact(new Contact("后端项目仓库","https://github.com/SikeX/donate-server",""))
                 .termsOfServiceUrl("http://localhost/")
                 .version("1.0")
                 .build();
