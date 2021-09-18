@@ -27,6 +27,7 @@ public class GeneratorTest {
                 .Builder()
                 .outputDir(projectPath + "/src/main/java")
                 .author("sike")
+                .enableSwagger()
                 .openDir(false)
                 .build();
 
