@@ -76,83 +76,78 @@ git branch -d mydev
 
 ```
 
+├── donate-server.iml
 ├── pom.xml
 ├── readme.md
-├── src
+├── src 项目源码
 │   ├── main
 │   │   ├── java
 │   │   │   └── com
 │   │   │       └── heu
 │   │   │           └── donateserver
 │   │   │               ├── DonateServerApplication.java
-│   │   │               ├── common 通用功能
-│   │   │               │   ├── CommonResponse.java 响应类
+│   │   │               ├── common 
+│   │   │               │   ├── CommonResponse.java
 │   │   │               │   └── ResponseCode.java
-│   │   │               ├── config 配置
-│   │   │               │   └── Swagger2.java
+│   │   │               ├── config 通用配置
+│   │   │               │   └── Swagger2Config.java Swagger配置
+│   │   │               ├── controller 网络接口层
+│   │   │               │   ├── DonateClassController.java
+│   │   │               │   ├── DonateController.java
+│   │   │               │   ├── DonationClassAndOptionController.java
+│   │   │               │   ├── DonationClassController.java
+│   │   │               │   ├── DonationItemController.java
+│   │   │               │   ├── DonationOptionController.java
+│   │   │               │   └── DonationPersonController.java
 │   │   │               ├── entity 实体层
+│   │   │               │   ├── Donate.java
 │   │   │               │   ├── DonationClass.java
-│   │   │               │   └── DonationItem.java
+│   │   │               │   ├── DonationClassAndOption.java
+│   │   │               │   ├── DonationItem.java
+│   │   │               │   ├── DonationOption.java
+│   │   │               │   └── DonationPerson.java
 │   │   │               ├── mapper 映射层
-│   │   │               │   └── DonationClassMapper.java
+│   │   │               │   ├── DonateMapper.java
+│   │   │               │   ├── DonateMapper.xml
+│   │   │               │   ├── DonationClassAndOptionMapper.java
+│   │   │               │   ├── DonationClassAndOptionMapper.xml
+│   │   │               │   ├── DonationClassMapper.java
+│   │   │               │   ├── DonationClassMapper.xml
+│   │   │               │   ├── DonationItemMapper.java
+│   │   │               │   ├── DonationItemMapper.xml
+│   │   │               │   ├── DonationOptionMapper.java
+│   │   │               │   ├── DonationOptionMapper.xml
+│   │   │               │   ├── DonationPersonMapper.java
+│   │   │               │   └── DonationPersonMapper.xml
 │   │   │               ├── service 服务层
 │   │   │               │   ├── DonationClassService.java
+│   │   │               │   ├── IDonateService.java
+│   │   │               │   ├── IDonationClassAndOptionService.java
+│   │   │               │   ├── IDonationClassService.java
+│   │   │               │   ├── IDonationItemService.java
+│   │   │               │   ├── IDonationOptionService.java
+│   │   │               │   ├── IDonationPersonService.java
 │   │   │               │   └── impl
-│   │   │               │       └── DonationClassServiceImpl.java
-│   │   │               └── web 网络层
-│   │   │                   └── DonateClassController.java
+│   │   │               │       ├── DonateServiceImpl.java
+│   │   │               │       ├── DonationClassAndOptionServiceImpl.java
+│   │   │               │       ├── DonationClassServiceImpl.java
+│   │   │               │       ├── DonationItemServiceImpl.java
+│   │   │               │       ├── DonationOptionServiceImpl.java
+│   │   │               │       └── DonationPersonServiceImpl.java
+│   │   │               └── util 工具类
+│   │   │                   └── BuildResponseUtils.java
 │   │   └── resources
 │   │       ├── application.yml
 │   │       ├── static
 │   │       └── templates
-│   └── test
-│       └── java
-│           └── com
-│               └── heu
-│                   └── donateserver
-│                       └── DonateServerApplicationTests.java
-└── target
-    ├── classes
-    │   ├── application.yml
-    │   └── com
-    │       └── heu
-    │           └── donateserver
-    │               ├── DonateServerApplication.class
-    │               ├── common
-    │               │   ├── CommonResponse.class
-    │               │   └── ResponseCode.class
-    │               ├── config
-    │               │   └── Swagger2.class
-    │               ├── entity
-    │               │   ├── DonationClass.class
-    │               │   └── DonationItem.class
-    │               ├── mapper
-    │               │   └── DonationClassMapper.class
-    │               ├── service
-    │               │   ├── DonationClassService.class
-    │               │   └── impl
-    │               │       └── DonationClassServiceImpl.class
-    │               └── web
-    │                   └── DonateClassController.class
-    ├── generated-sources
-    │   └── annotations
-    ├── generated-test-sources
-    │   └── test-annotations
-    ├── maven-status
-    │   └── maven-compiler-plugin
-    │       ├── compile
-    │       │   └── default-compile
-    │       │       ├── createdFiles.lst
-    │       │       └── inputFiles.lst
-    │       └── testCompile
-    │           └── default-testCompile
-    │               ├── createdFiles.lst
-    │               └── inputFiles.lst
-    └── test-classes
-        └── com
-            └── heu
-                └── donateserver
-                    └── DonateServerApplicationTests.class
+    └── test
+        └── java
+            └── com
+               └── heu
+                   └── donateserver
+                       ├── DonateServerApplicationTests.java
+                       └── GeneratorTest.java
+
 ```
 
 ### 3. 开发规范
