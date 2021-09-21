@@ -1,6 +1,7 @@
 package com.heu.donateserver.controller;
 
 
+import com.heu.donateserver.VO.DonationItemClassVO;
 import com.heu.donateserver.common.CommonResponse;
 import com.heu.donateserver.entity.DonationItem;
 import com.heu.donateserver.service.IDonationItemService;
@@ -9,6 +10,8 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * <p>
@@ -20,7 +23,6 @@ import org.springframework.web.bind.annotation.*;
  */
 @Api(tags = "捐赠项目")
 @RestController
-@RequestMapping("/donateserver/donationItem")
 public class DonationItemController {
 
     @Autowired
@@ -35,6 +37,13 @@ public class DonationItemController {
     @PostMapping("donationItem")
     public CommonResponse<?> add(@RequestBody DonationItem donationItem) {
         return BuildResponseUtils.buildResponse(iDonationItemService.save(donationItem));
+    }
+
+    @ApiOperation(value = "获取全部捐赠项目")
+    @GetMapping("donationItems")
+    @ResponseBody
+    public CommonResponse<List<DonationItemClassVO>> getAll() {
+        return BuildResponseUtils.buildResponse(iDonationItemService.getDonationItemClass());
     }
 
     /**

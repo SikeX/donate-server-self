@@ -4,11 +4,16 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import java.io.Serializable;
+import java.sql.Timestamp;
 import java.time.LocalDateTime;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 /**
  * <p>
@@ -19,11 +24,14 @@ import lombok.EqualsAndHashCode;
  * @since 2021-09-18
  */
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 @EqualsAndHashCode(callSuper = false)
 @ApiModel(value = "DonationItem对象", description = "")
 public class DonationItem implements Serializable {
 
 
+    @JsonIgnore
     @ApiModelProperty(value = "primary key")
     @TableId(value = "donation_item_id", type = IdType.AUTO)
     private Integer donationItemId;
@@ -51,15 +59,14 @@ public class DonationItem implements Serializable {
 
     @ApiModelProperty(value = "create time")
     @TableField("create_time")
-    private LocalDateTime createTime;
+    private Timestamp createTime;
 
     @TableField("last_edit_time")
-    private LocalDateTime lastEditTime;
+    private Timestamp lastEditTime;
 
-    private LocalDateTime endtime;
+    private Timestamp endtime;
 
     @TableField("donation_class_id")
     private Integer donationClassId;
-
 
 }
