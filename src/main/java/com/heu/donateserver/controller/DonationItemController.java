@@ -1,11 +1,14 @@
 package com.heu.donateserver.controller;
 
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.heu.donateserver.VO.DonationItemClassVO;
-import com.heu.donateserver.common.CommonResponse;
+import com.heu.donateserver.VO.CommonResponseVO;
+import com.heu.donateserver.VO.PageResponseVO;
 import com.heu.donateserver.entity.DonationItem;
 import com.heu.donateserver.service.IDonationItemService;
 import com.heu.donateserver.util.BuildResponseUtils;
+import com.heu.donateserver.util.PageParam;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,16 +38,21 @@ public class DonationItemController {
      */
     @ApiOperation(value = "新增捐赠项目")
     @PostMapping("donationItem")
-    public CommonResponse<?> add(@RequestBody DonationItem donationItem) {
+    public CommonResponseVO<?> add(@RequestBody DonationItem donationItem) {
         return BuildResponseUtils.buildResponse(iDonationItemService.save(donationItem));
     }
 
-    @ApiOperation(value = "获取全部捐赠项目")
+    @ApiOperation(value = "分页获取全部捐赠项目")
     @GetMapping("donationItems")
     @ResponseBody
-    public CommonResponse<List<DonationItemClassVO>> getAll() {
-        return BuildResponseUtils.buildResponse(iDonationItemService.getDonationItemClass());
+    public PageResponseVO<IPage<DonationItemClassVO>> selectPage(PageParam param){
+
+
+        return iDonationItemService.getDonationItemClass(param);
     }
+//    public CommonResponseVO<List<DonationItemClassVO>> getAll() {
+//        return BuildResponseUtils.buildResponse(iDonationItemService.getDonationItemClass());
+//    }
 
     /**
      * 通过id查询项目
@@ -54,7 +62,7 @@ public class DonationItemController {
      */
     @ApiOperation(value = "通过id查询项目")
     @GetMapping("donationItem/{id}")
-    public CommonResponse<DonationItem> getById(@PathVariable String id) {
+    public CommonResponseVO<DonationItem> getById(@PathVariable String id) {
         return BuildResponseUtils.buildResponse(iDonationItemService.getById(id));
     }
 
@@ -66,7 +74,7 @@ public class DonationItemController {
      */
     @ApiOperation("更新项目信息")
     @PutMapping("donationItem")
-    public CommonResponse<?> update(@RequestBody DonationItem donationItem) {
+    public CommonResponseVO<?> update(@RequestBody DonationItem donationItem) {
         return BuildResponseUtils.buildResponse(iDonationItemService.updateById(donationItem));
     }
 
@@ -78,7 +86,7 @@ public class DonationItemController {
      */
     @ApiOperation("通过id删除项目")
     @DeleteMapping("donationItem/{id}")
-    public CommonResponse<?> delete(@PathVariable String id) {
+    public CommonResponseVO<?> delete(@PathVariable String id) {
         return BuildResponseUtils.buildResponse(iDonationItemService.removeById(id));
     }
 

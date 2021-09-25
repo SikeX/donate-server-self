@@ -42,6 +42,12 @@ public class DonationItem implements Serializable {
     @TableField("donation_item_name")
     private String donationItemName;
 
+    @TableField("status")
+    private Integer status;
+
+    @TableField("raised_money")
+    private String raisedMoney;
+
     @TableField("target_money")
     private String targetMoney;
 
@@ -66,6 +72,7 @@ public class DonationItem implements Serializable {
 
     private Timestamp endtime;
 
+    @JsonIgnore
     @TableField("donation_class_id")
     private Integer donationClassId;
 

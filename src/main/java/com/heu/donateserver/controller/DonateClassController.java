@@ -1,6 +1,6 @@
 package com.heu.donateserver.controller;
 
-import com.heu.donateserver.common.CommonResponse;
+import com.heu.donateserver.VO.CommonResponseVO;
 import com.heu.donateserver.entity.DonationClass;
 import com.heu.donateserver.service.DonationClassService;
 import com.heu.donateserver.util.BuildResponseUtils;
@@ -23,13 +23,13 @@ public class DonateClassController {
     @ApiOperation(value = "查询捐赠项目分类")
     @GetMapping("donateClasses")
     @ResponseBody
-    public CommonResponse<List<DonationClass>> getDonationClassList(){
+    public CommonResponseVO<List<DonationClass>> getDonationClassList(){
         return BuildResponseUtils.buildResponse(donationClassService.list());
     }
 
     @ApiOperation("新增项目分类")
     @PostMapping("donationClass")
-    public CommonResponse<?> add(@RequestBody DonationClass donationClass) {
+    public CommonResponseVO<?> add(@RequestBody DonationClass donationClass) {
         return BuildResponseUtils.buildResponse(donationClassService.save(donationClass));
     }
 

@@ -1,5 +1,6 @@
 package com.heu.donateserver.mapper;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.heu.donateserver.VO.DonationItemClassVO;
 import com.heu.donateserver.entity.DonationItem;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
@@ -19,5 +20,5 @@ import java.util.List;
 public interface DonationItemMapper extends BaseMapper<DonationItem> {
 
     @Select("SELECT donation_item.*, donation_class.donation_class_name FROM donation_class, donation_item WHERE donation_item.donation_class_id = donation_class.donation_class_id")
-    List<DonationItemClassVO> getDonationItemClass();
+    List<DonationItemClassVO> getDonationItemClass(Page<DonationItemClassVO> page);
 }

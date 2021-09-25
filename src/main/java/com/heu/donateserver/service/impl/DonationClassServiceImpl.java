@@ -1,14 +1,10 @@
 package com.heu.donateserver.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.heu.donateserver.common.CommonResponse;
 import com.heu.donateserver.entity.DonationClass;
 import com.heu.donateserver.mapper.DonationClassMapper;
 import com.heu.donateserver.service.DonationClassService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 public class DonationClassServiceImpl extends ServiceImpl<DonationClassMapper, DonationClass> implements DonationClassService {
