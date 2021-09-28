@@ -7,8 +7,11 @@ import lombok.Setter;
 //枚举
 public enum ResponseCode {
 
-    SUCCESS("0","SUCCESS"),
-    ERROR("1","ERROR"),
+    SUCCESS("200","SUCCESS"),
+    ERROR("400","ERROR"),
+    UNAUTHORIZED("401","UNAUTHORIZED"),
+    NOT_FOUND("404","NOT_FOUND"),
+    INTERNAL_SERVER_ERROR("500", "INTERNAL_SERVER_ERROR"),
     NEED_LOGIN("10","NEED_LOGIN"),
     ILLEGAL_ARGUMENT("2","ILLEGAL_ARGUMENT");
 

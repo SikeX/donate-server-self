@@ -16,3 +16,6 @@ mybatis-plus:
 
 server:
   port: 8080
+
+jwt:
+  secret_salt: "test"

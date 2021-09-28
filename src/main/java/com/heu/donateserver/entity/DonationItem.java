@@ -4,8 +4,8 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.sql.Timestamp;
-import java.time.LocalDateTime;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.annotations.ApiModel;
@@ -51,6 +51,9 @@ public class DonationItem implements Serializable {
     @TableField("target_money")
     private String targetMoney;
 
+    @TableField(exist = false)
+    private Double progress;
+
     @TableField("is_show")
     private Integer isShow;
 
@@ -75,5 +78,15 @@ public class DonationItem implements Serializable {
     @JsonIgnore
     @TableField("donation_class_id")
     private Integer donationClassId;
+
+
+    public Double getProgress() {
+
+        Double progress =  Double.parseDouble(this.raisedMoney) / Double.parseDouble(this.targetMoney) * 100;
+
+        BigDecimal result = new BigDecimal(progress);
+
+        return result.setScale(0, BigDecimal.ROUND_HALF_UP).doubleValue();
+    }
 
 }
